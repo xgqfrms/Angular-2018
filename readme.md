@@ -48,5 +48,5 @@ https://github.com/angular/angular-cli/releases/tag/v7.0.6
 ## next
 
 https://next.angular.io/
-
+https://next.angular.io/guide/quickstart
 https://next.angular.io/guide/file-structure
