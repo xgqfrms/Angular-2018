@@ -4,6 +4,9 @@
 
 
 function click(e) {
+    // chrome.tabs.executeScript(null,{
+    //     file: "logic.js",
+    // });
     chrome.tabs.executeScript(null,{
         code: "document.body.style.backgroundColor='" + e.target.id + "'",
     });

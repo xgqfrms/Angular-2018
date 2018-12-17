@@ -1,0 +1,51 @@
+﻿{
+    "manifest_version": 2,
+    "name": "jira extensions for svn!",
+    "description": "jira extensions for svn!",
+    "author": "xgqfrms",
+    "version": "1.1.1",
+    "permissions": [
+        "fontSettings",
+        "storage",
+        "tabs",
+        "declarativeContent",
+        "activeTab",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "icons": {
+        "16": "icons/icon_16.png",
+        "32": "icons/icon_48.png",
+        "48": "icons/icon_48.png",
+        "128": "icons/icon_128.png"
+    },
+    "background": {
+        "persistent": false,
+        "scripts": [
+            "libs/click-copy.min.js",
+            "background/background.js"
+        ]
+    },
+    "browser_action": {
+        "default_title": "popup ui",
+        "default_icon": {
+            "16": "icons/icon_16.png",
+            "32": "icons/icon_48.png",
+            "48": "icons/icon_48.png",
+            "128": "icons/icon_128.png"
+        },
+        "default_popup": "popup/popup.html"
+    },
+    "content_scripts": [{
+        "matches": [
+            "<all_urls>"
+        ],
+        "js": [
+            "libs/click-copy.min.js",
+            "content/content_script.js"
+        ],
+        "run_at": "document_start",
+        "all_frames": true,
+        "match_about_blank": true
+    }]
+}
