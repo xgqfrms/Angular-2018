@@ -69,3 +69,15 @@
 https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js
 
 https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js
+
+
+
+> jira & click copy 
+
+```js
+
+!function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,t),o.l=!0,o.exports}var n={};t.m=e,t.c=n,t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=536)}({536:function(e,t,n){"use strict";window.SVNCC=function(){var e,t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{kind:"无提交类型",testing:!1},n=arguments.length>1&&void 0!==arguments[1]&&arguments[1],r=t.kind,o=t.testing,i=document.querySelector('[id="key-val"]').innerText.trim(),c=document.querySelector('[id="type-val"]').innerText.trim(),u=document.querySelector('[id="summary-val"]').innerText.trim(),l=document.querySelector('[id="description-val"]>[class="user-content-block"]').innerText.trim(),a=o?"是":"否";if("无提交类型"===r)switch(c){case"新需求":c="新功能";break;case"优化":c="追加递交";break;case"缺陷":c="BUG修复"}u!==l&&(u+=l),e="\n[JIRA编号] "+i+"\n[修改内容] "+u+"\n[提交类型] "+c+"\n[需要测试] "+a+"\n",n&&console.log("result =\n",e);try{window.copy(e),alert("copied!")}catch(e){console.error("auto copy failed!")}return e}}});
+
+// SVNCC({ kind: "BUG修复", testing: true, });
+
+```
