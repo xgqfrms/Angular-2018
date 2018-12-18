@@ -121,6 +121,10 @@ setTimeout(() => {
 //     }
 // }, 3000);
 
+
+
+/*
+
 // array OK
 chrome.storage.sync.get([
     "jira_str",
@@ -147,4 +151,5 @@ chrome.storage.sync.get({
 //     console.log(`get items =`, JSON.stringify(items, null, 4));
 // });
 
+*/
 

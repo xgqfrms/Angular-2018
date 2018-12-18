@@ -180,4 +180,32 @@ chrome.tabs.onUpdated.addListener(tabChecker);
 // runtime onMessage
 chrome.runtime.onMessage.addListener(onMessageChecker);
 
+/*
 
+https://developer.chrome.com/extensions/api_index#dev_apis
+
+// Since Chrome 73. Warning: this is the current Dev channel. 
+
+chrome.storage.onChanged.addListener(function(changes, namespace) {
+    for (key in changes) {
+        var storageChange = changes[key];
+        console.log(`\nStorage key "%s" in namespace "%s" changed.\nOld value was "%s",\nNew value is "%s".`,
+            key,
+            namespace,
+            storageChange.oldValue,
+            storageChange.newValue
+        );
+    }
+});
+
+*/
+
+// chrome.storage.StorageChange((oldValue, newValue) => {
+//     console.log(`Storage Old value = "%s"`, oldValue);
+//     console.log(`Storage New value = "%s"`, newValue);
+// });
+
+// chrome.storage.StorageChange.addListener(function(oldValue, newValue) {
+//     console.log(`Storage Old value = "%s"`, oldValue);
+//     console.log(`Storage New value = "%s"`, newValue);
+// });

@@ -180,12 +180,13 @@ chrome.runtime.onSuspend.addListener(function() {
 
 
 
+## zip
 
+```sh
+# admin pwd
+$ sudo apt install zip
 
+$ zip -r chrome-jira.2018.12.18.zip chrome-jira/*
 
-
-
-
-
-
+```
 
