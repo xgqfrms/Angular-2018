@@ -1,4 +1,70 @@
-# bgp
+# (chrome = browser) 
+
+
+
+## storage API
+
+https://developer.chrome.com/extensions/storage#using-sync
+
+> To store user data for your extension, you can use either `storage.sync`, or `storage.local`
+
+```js
+
+// storage.sync
+chrome.storage.sync.set({key: value}, function() {
+    console.log('Value is set to ' + value);
+});
+
+chrome.storage.sync.get(['key'], function(result) {
+    console.log('Value currently is ' + result.key);
+});
+
+```
+
+```js
+// storage.local:
+
+chrome.storage.local.set({key: value}, function() {
+    console.log('Value is set to ' + value);
+});
+
+chrome.storage.local.get(['key'], function(result) {
+    console.log('Value currently is ' + result.key);
+});
+
+```
+
+
+```js
+// array OK
+chrome.storage.sync.get([
+    "jira_str",
+    "jira_obj"
+], function(items) {
+    console.log(`chrome.storage.sync.get OK!`);
+    console.log(`get items =`, JSON.stringify(items, null, 4));
+});
+
+// object Error
+chrome.storage.sync.get({
+    jira_str,
+    jira_obj,
+}, function(items) {
+    console.log(`chrome.storage.sync.get OK!`);
+    console.log(`get items =`, JSON.stringify(items, null, 4));
+});
+
+// chrome.storage.sync.get({
+//     "jira_str",
+//     "jira_obj",
+// }, function(items) {
+//     console.log(`chrome.storage.sync.get OK!`);
+//     console.log(`get items =`, JSON.stringify(items, null, 4));
+// });
+
+```
+
+## bgp
 
 > default & no page
 

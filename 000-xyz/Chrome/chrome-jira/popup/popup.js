@@ -57,12 +57,18 @@ let text = `
 
 document.addEventListener('DOMContentLoaded', function () {
     showLogo();
-    copyText();
+    // click & copy
+    // copyText();
     setTimeout(() => {
         let bgp = chrome.extension.getBackgroundPage();
+        // window.Window === popup.js's window
+        // bgp === Window 
+        console.log(`bgp =`, bgp);
         try {
             if (bgp) {
                 let value = bgp.bgp_global_var;
+                // bgp === Window 
+                // bgp.bgp_global_var === window.Window.bgp_global_var
                 console.log(`popup & bgp_global_var =`, value);
             }
         } catch (error) {
@@ -70,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }, 0);
     setTimeout(() => {
+        // OK
         let input = document.querySelector(`[data-input="selectable-text"]`);
         input.select();
         try {
@@ -82,6 +89,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 1000);
 });
 
+setTimeout(() => {
+    // chrome.storage
+    (() => {
+        try {
+            chrome.storage.sync.get({
+                jira_str,
+                jira_obj,
+            }, function(items) {
+                console.log(`chrome.storage.sync.get OK!`);
+                console.log(`get items =`, JSON.stringify(items, null, 4));
+            });
+        } catch (error) {
+            console.error(`chrome.storage.sync.set Error!`, error);
+        }
+    })();
+}, 5000);
 
 
 
@@ -97,3 +120,31 @@ document.addEventListener('DOMContentLoaded', function () {
 //         console.log(`popup & bgp_global_var & error =`, error);
 //     }
 // }, 3000);
+
+// array OK
+chrome.storage.sync.get([
+    "jira_str",
+    "jira_obj"
+], function(items) {
+    console.log(`chrome.storage.sync.get OK!`);
+    console.log(`get items =`, JSON.stringify(items, null, 4));
+});
+
+// object Error
+chrome.storage.sync.get({
+    jira_str,
+    jira_obj,
+}, function(items) {
+    console.log(`chrome.storage.sync.get OK!`);
+    console.log(`get items =`, JSON.stringify(items, null, 4));
+});
+
+// chrome.storage.sync.get({
+//     "jira_str",
+//     "jira_obj",
+// }, function(items) {
+//     console.log(`chrome.storage.sync.get OK!`);
+//     console.log(`get items =`, JSON.stringify(items, null, 4));
+// });
+
+
