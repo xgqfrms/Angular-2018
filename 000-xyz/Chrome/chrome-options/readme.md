@@ -10,3 +10,9 @@ https://developer.chrome.com/extensions/faq
 ```js
     // todo...
 ```
+# OAuth
+
+https://unitedheroes.net/OAuthSimple/js/OAuthSimple.js
+
+
+
